@@ -28,3 +28,7 @@ sudo apt install code
 # Install sway and swaylock and swaybar
 
 sudo apt install sway swaylock waybar -y
+
+# Install slurp and grim for screenshots 
+
+sudo apt install slurp grim -y
