@@ -31,3 +31,8 @@ sudo apt install code
 # Install slurp and grim for screenshots 
 
 sudo apt install slurp grim -y
+
+# Bash-completion for sudo
+
+sudo apt install bash-completion -y
+. ~/.bashrc 
