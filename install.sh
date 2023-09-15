@@ -24,3 +24,7 @@ rm -f packages.microsoft.gpg
 sudo apt install apt-transport-https
 sudo apt update
 sudo apt install code 
+
+# Install sway and swaylock
+
+sudo apt install sway swaylock -y
