@@ -22,6 +22,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
+exec waybar
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -207,23 +208,54 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-    #status_command upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage:/ {print $2}'
-}
+#bar {
+#    position top
+#
+#    # When the status_command prints a new line to stdout, swaybar updates.
+#    # The default just shows the current date and time.
+#    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
 
 include /etc/sway/config.d/*
-#Special Keys
-    bindsym XF86MonBrightnessUp exec light -A 10
-    bindsym F6 exec --no-startup-id light -U 10
-#
+#Brightness
+
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+#Volume
+
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
+bindsym XF86AudioMute exec amixer sset Master toggle
+
+#Gaps
+workspace * gaps inner 200
+workspace * gaps outer 200
+
+#Workspace default apps
+workspace 1 
+exec brave-browser --profile-directory="Default"
+
+workspace 3
+exec foot
+
+workspace 2
+exec sleep 2 && brave-browser --profile-directory="Profile 1"
+
+#Suspend with power button
+
+exec /usr/lib/elogind/elogind-inhibit
+bindsym XF86PowerOff exec systemctl suspend
+
+#Screenshots
+
+bindsym $mod+Shift+s exec slurp | grim -g - "$(date '+%Y-%m-%d_%H-%M-%S').png"
+
+
+
