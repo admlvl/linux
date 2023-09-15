@@ -25,6 +25,6 @@ sudo apt install apt-transport-https
 sudo apt update
 sudo apt install code 
 
-# Install sway and swaylock
+# Install sway and swaylock and swaybar
 
-sudo apt install sway swaylock -y
+sudo apt install sway swaylock waybar -y
