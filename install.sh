@@ -4,10 +4,13 @@
 echo 'Updating system...'
 sudo apt update
 
+# Install sway and swaylock and swaybar
+
+sudo apt install sway swaylock waybar -y
+
 # Install Celluloid
 echo 'Installing Celluloid...'
 sudo apt install celluloid -y
-
 
 # Install KeepassXC 
 echo 'Installing KepassXC...'
@@ -24,10 +27,6 @@ rm -f packages.microsoft.gpg
 sudo apt install apt-transport-https
 sudo apt update
 sudo apt install code 
-
-# Install sway and swaylock and swaybar
-
-sudo apt install sway swaylock waybar -y
 
 # Install slurp and grim for screenshots 
 
