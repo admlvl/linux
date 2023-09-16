@@ -238,15 +238,14 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 workspace * gaps inner 200
 workspace * gaps outer 200
 
-#Workspace default apps
-workspace 1 
-exec brave-browser --profile-directory="Default"
+workspace 1
+exec brave-browser --enable-features=UseOzonePlatform --ozone-platform=wayland --profile-directory="Default"
 
 workspace 3
 exec foot
 
 workspace 2
-exec sleep 2 && brave-browser --profile-directory="Profile 1"
+exec sleep 2 && brave-browser --enable-features=UseOzonePlatform --ozone-platform=wayland --profile-directory="Profile 1"
 
 #Suspend with power button
 
