@@ -16,6 +16,10 @@ sudo apt install celluloid -y
 echo 'Installing KepassXC...'
 sudo apt install keepassxc -y
 
+# Install Libreoffice
+
+sudo apt install libreoffice -y
+
 # Install VSCODE
 echo 'Installing VSCode...'
 sudo apt-get install wget gpg
