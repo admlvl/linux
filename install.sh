@@ -30,7 +30,19 @@ rm -f packages.microsoft.gpg
 
 sudo apt install apt-transport-https
 sudo apt update
-sudo apt install code 
+sudo apt install code -y
+
+# Install Brave
+
+sudo apt install curl -y
+
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+sudo apt update
+
+sudo apt install brave-browser -y
 
 # Install slurp and grim for screenshots 
 
@@ -40,3 +52,18 @@ sudo apt install slurp grim -y
 
 sudo apt install bash-completion -y
 . ~/.bashrc 
+
+# Brightness control
+
+sudo apt install brightnessctl -y
+
+# Network manager
+
+sudo apt install network-manager -y
+
+# Copy config files to their directories
+
+mkdir ~/.config/sway
+cp linux/sway/config ~/.config/sway/
+mkdir ~/.config/waybar
+cp linux/waybar/config ~/.config/waybar/
