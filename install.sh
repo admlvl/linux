@@ -67,3 +67,6 @@ mkdir ~/.config/sway
 cp linux/sway/config ~/.config/sway/
 mkdir ~/.config/waybar
 cp linux/waybar/config ~/.config/waybar/
+
+#install pipewire
+sudo apt install pipewire -y
